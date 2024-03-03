@@ -2,8 +2,7 @@ package com.example.springprojectgenerator.controllers;
 
 import com.example.springprojectgenerator.models.Entity;
 import com.example.springprojectgenerator.models.Field;
-import jakarta.websocket.server.PathParam;
-import org.apache.commons.io.FileUtils;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,7 +24,7 @@ import java.util.zip.ZipOutputStream;
 public class CreateZipController {
 
     @PostMapping(value = "/download", consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<byte[]> download(@RequestBody List<Entity> entities) throws IOException {
+    public ResponseEntity<byte[]> download(@Valid @RequestBody List<Entity> entities) throws IOException {
         File folder = new File("models");
         folder.mkdir();
             for (Entity entity : entities) {
