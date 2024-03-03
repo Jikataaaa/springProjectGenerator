@@ -48,7 +48,7 @@ public class CreateZipController {
         sb.append(" {\n");
         for (Field field : entity.getFields()) {
             sb.append("\t").append(field.getModifier()).append(" ")
-                    .append(field.getType()).append(" ").append(field.getName())
+                    .append(field.getDataType()).append(" ").append(field.getName())
                     .append(";\n");
         }
         sb.append("\n}");
